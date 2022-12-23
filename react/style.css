@@ -1,0 +1,15 @@
+body {
+  font-family: sans-serif;
+}
+
+.spell-box {
+  background-color: azure;
+}
+.spell-box .spell-list {
+  list-style-type: none;
+}
+.spell-box .spell-list li {
+  padding: 1em;
+}
+
+/*# sourceMappingURL=style.css.map */
