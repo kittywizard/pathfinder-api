@@ -1,5 +1,14 @@
 import { useState, useEffect } from 'react';
+import Header from './components/header/Header';
 
+interface spellTypes {
+  id: number,
+  name: string,
+  range: string,
+  description: string,
+  saving_throws: boolean,
+  school: string
+}
 
 const App:React.FC = () => {
   const [spells, setSpells] = useState<any>([]);
@@ -10,7 +19,7 @@ const App:React.FC = () => {
     .then(data => setSpells(data))
   }, []);
 
-  const spellMap = spells.map(spell => (
+  const spellMap = spells.map((spell: spellTypes) => (
     <div className="spell-box">
       <ul className="spell-list">
         <li>
@@ -32,6 +41,7 @@ const App:React.FC = () => {
 
   return (
     <>
+    <Header />
      {spellMap}
     </>
   )

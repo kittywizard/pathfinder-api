@@ -1,6 +1,7 @@
-body {
-    font-family: sans-serif;
-}
+@import "./components/header/header.scss";
+@import "./components/nav/nav.scss";
+
+
 .spell-box {
     background-color: azure;
 
@@ -11,4 +12,44 @@ body {
             padding: 1em;
         }
     }    
+}
+
+body {
+    font-family: 'Manrope', sans-serif; 
+    padding: 0;
+    margin: 0;
+    /* 300, 500, 700 */
+}
+
+.box-container {
+     display: flex;
+     justify-content: center;
+     margin-top: 2em;
+}
+
+.start-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.label {
+    padding: .5em 0;
+}
+
+.btn {
+    border: none;
+    padding: 1.5em 3em;
+    background-color: #252c46;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 1em;
+    margin: 1em;
+    cursor: pointer;
+    box-shadow: 5px 7px 19px -1px rgba(0,0,0,0.32);
+    -webkit-box-shadow: 5px 7px 19px -1px rgba(0,0,0,0.32);
+    -moz-box-shadow: 5px 7px 19px -1px rgba(0,0,0,0.32);
 }
