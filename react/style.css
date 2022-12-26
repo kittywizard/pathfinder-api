@@ -67,7 +67,7 @@ nav ul li {
 }
 
 .spell-box {
-  background-color: azure;
+  background-color: rgba(77, 136, 170, 0.747);
 }
 .spell-box .spell-list {
   list-style-type: none;

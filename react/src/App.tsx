@@ -4,8 +4,8 @@ import Header from './components/header/Header';
 interface spellTypes {
   id: number,
   name: string,
-  range: string,
-  description: string,
+  subschool: string,
+  descriptor: string,
   saving_throws: boolean,
   school: string
 }
@@ -29,10 +29,10 @@ const App:React.FC = () => {
           School: {spell.school}
         </li>
         <li>
-          Description: {spell.description}
+          Description: {spell.descriptor}
         </li>
         <li>
-          Range: {spell.range}
+          Subschool: {spell.subschool}
         </li>
       </ul>
 
