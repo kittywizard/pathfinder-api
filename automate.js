@@ -5,16 +5,16 @@ const { parse } = require('csv-parse');
 //postgres login stuff
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'admin',
+  user: 'usernamehere',
   host: 'localhost',
   database: 'pathfinder',
-  password: 'root',
+  password: 'passwordhere',
   port: 5432,
 });
 
 
 //magic read stream thing
-fs.createReadStream("./bash/spells_test.csv")
+fs.createReadStream("./bash/spells.csv")
 .pipe(parse({delimiter: ',', from_line: 2}))
 .on("data", (row) => {
     createSpell(row);
@@ -33,9 +33,10 @@ const createSpell = (row) => {
                 spells(name,school,subschool,descriptor,spell_level,casting_time,range,area,effect,targets,duration,dismissible,shapeable,saving_throw,description,description_formatted,full_text,domain,short_description,mythic_text,mythic) 
                 VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)`
                , [row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12], row[13], row[14], row[15], row[16], row[17], row[18], row[19], row[20]], (error, results) => {
-            if(error) reject(error)
+            if(error) reject(error) // pretty sure this is pointless. see .catch() below that actually works
 
             resolve(`A new spell has been added`); //where does this go i wonder?
         })
-    });
+    })
+    .catch(error => console.log(error));
 }
