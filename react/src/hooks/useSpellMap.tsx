@@ -28,6 +28,14 @@ export default function useSpellMap() {
       
       })
     }, []);
+
+    //fix the display of certain things
+    const formatSpells = (str: string) => {
+        const formattedStrArr: Array = str.split('');
+        formattedStrArr[0] = formattedStrArr[0].toUpperCase();
+        return formattedStrArr.join('');         
+
+    }
   
   // spell API names:
   // name,school,subschool,descriptor,spell_level,casting_time,range,area,effect,targets,duration,
@@ -37,28 +45,26 @@ export default function useSpellMap() {
         return (
           <div className="spell-box">
             <ul className="spell-list">
-              <li>
-                <span className='spell-name'>{spell.name}</span>        
+                <li className='spell-name'>
+                    {spell.name}
+                </li>
+                <li>School: {formatSpells(spell.school)}</li>
+                    {spell.subschool != '' && <li>Subschool: {formatSpells(spell.subschool)}</li>}
+                <li>
+                    Description: {spell.short_description}
+                </li>
+                <li>
+                    {spell.range != '' &&
+                        <>Range: {formatSpells(spell.range)} <br/></>
+                    }
+                    {spell.area != '' &&
+                        <>Area: {formatSpells(spell.area)} <br/></>
+                    }
+                    {spell.effect != '' &&
+                        <>Effect: {formatSpells(spell.effect)}</>
+                    }
               </li>
-              <li>
-                School: {spell.school}
-              </li>
-              <li>
-                Subschool: {spell.subschool}
-              </li>
-              <li>
-                Description: {spell.short_description}
-              </li>
-              <li>
-              {spell.range != '' &&
-                <>Range: {spell.range} <br/></>
-              }
-              Area: {spell.area} <br/>
-              Effect: {spell.effect}
-              </li>
-  
-            </ul>
-  
+            </ul> 
           </div>
         )
     })
