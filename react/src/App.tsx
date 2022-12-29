@@ -8,7 +8,7 @@ interface spellTypes {
   descriptor: string,
   saving_throws: boolean,
   school: string,
-  description: string,
+  short_description: string,
   range: string,
   area: string,
   effect: string
@@ -20,7 +20,11 @@ const App:React.FC = () => {
   useEffect(() => {
     fetch('http://localhost:3001')
     .then(response =>  response.json())
-    .then(data => setSpells(data))
+    .then(data => {
+      //only get a few for now
+      setSpells(data)
+    
+    })
   }, []);
 
 // spell API names:
@@ -28,12 +32,11 @@ const App:React.FC = () => {
 //dismissible,shapeable,saving_throw,description,description_formatted,full_text,domain,short_description,mythic_text,mythic
 
   const spellMap = spells.map((spell: spellTypes) => {
-    for(let i=0; i < 20; i++) { //basically to not kill my page - need a way to sort / limit later
       return (
         <div className="spell-box">
           <ul className="spell-list">
             <li>
-              Name: {spell.name}
+              <span className='spell-name'>{spell.name}</span>        
             </li>
             <li>
               School: {spell.school}
@@ -42,10 +45,12 @@ const App:React.FC = () => {
               Subschool: {spell.subschool}
             </li>
             <li>
-              Description: {spell.description}
+              Description: {spell.short_description}
             </li>
             <li>
-            Range: {spell.range} <br/>
+            {spell.range != '' &&
+              <>Range: {spell.range} <br/></>
+            }
             Area: {spell.area} <br/>
             Effect: {spell.effect}
             </li>
@@ -54,16 +59,14 @@ const App:React.FC = () => {
 
         </div>
       )
-
-    }
-
-
   })
 
   return (
     <>
     <Header />
-     {spellMap}
+    <section className='box-container'>
+      {spellMap}
+    </section>
     </>
   )
 }

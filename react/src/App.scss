@@ -1,55 +1,68 @@
-@import "./components/header/header.scss";
-@import "./components/nav/nav.scss";
-
-
-.spell-box {
-    background-color: rgba(77, 136, 170, 0.747);
-
-    .spell-list {
-        list-style-type: none;
-
-        & li {
-            padding: 1em;
-        }
-    }    
-}
-
-body {
-    font-family: 'Manrope', sans-serif; 
-    padding: 0;
-    margin: 0;
-    /* 300, 500, 700 */
-}
-
 .box-container {
-     display: flex;
-     justify-content: center;
-     margin-top: 2em;
-}
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 2em;
 
-.start-form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 80%;
-    margin: 0 auto;
-}
+    .spell-box {    
+        background-color: $blue-accent; 
+        border-radius: 2em;
+        margin: 0.5em;
+        max-width: 500px;
 
-.label {
-    padding: .5em 0;
-}
+        .spell-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            list-style-type: none;
+            margin: 1em;  
+                & li {
+                    padding: 0.5em;
+                }
+            } 
 
-.btn {
-    border: none;
-    padding: 1.5em 3em;
-    background-color: #252c46;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #fff;
-    border-radius: 1em;
-    margin: 1em;
-    cursor: pointer;
-    box-shadow: 5px 7px 19px -1px rgba(0,0,0,0.32);
-    -webkit-box-shadow: 5px 7px 19px -1px rgba(0,0,0,0.32);
-    -moz-box-shadow: 5px 7px 19px -1px rgba(0,0,0,0.32);
-}
+            //only works like this
+            ul {
+                padding-inline-start: 0;
+            }
+        }
+    }
+
+    .spell-name {
+        font-size: 2rem;
+        color: $bg-color;
+        font-weight: 700;
+        line-height: 85%;
+    }
+
+    
+//not used right now
+
+// .start-form {
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: column;
+//     width: 80%;
+//     margin: 0 auto;
+// }
+
+
+
+// .label {
+//     padding: .5em 0;
+// }
+
+// .btn {
+//     border: none;
+//     padding: 1.5em 3em;
+//     background-color: #252c46;
+//     font-size: 1.5rem;
+//     font-weight: 700;
+//     color: #fff;
+//     border-radius: 1em;
+//     margin: 1em;
+//     cursor: pointer;
+//     box-shadow: 5px 7px 19px -1px rgba(0,0,0,0.32);
+//     -webkit-box-shadow: 5px 7px 19px -1px rgba(0,0,0,0.32);
+//     -moz-box-shadow: 5px 7px 19px -1px rgba(0,0,0,0.32);
+// }

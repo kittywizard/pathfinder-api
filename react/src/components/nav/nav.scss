@@ -9,8 +9,8 @@ nav {
     top: 0;
     left: 0;
     width: 66%;
-    background-color: #252c46;
-    color: #fff;
+    background-color: $bg-color;
+    color: $light-accent;
     height: 100vh;
     z-index: 2;
     padding: 2em 0;
@@ -22,13 +22,13 @@ nav {
 
 .nav-list a {
     text-decoration: none;
-    color: #f2f2f2;
+    color: $light-accent;
     font-weight: 500;
 }
 
 .nav-list a:hover{
-    color: #252c46;
-    background: #f2f2f2;
+    color: $bg-color;
+    background: $light-accent;
 }
 .menu-open,
 .menu-close,
@@ -48,5 +48,5 @@ nav ul li {
 .char-info-bold {
     font-weight: 800;
     padding: 0 0.5em 1em 0;
-    color: #aad5db;
+    color: $blue-accent;
 }

@@ -5,9 +5,11 @@ header {
    font-size: 1rem;
    font-weight: 800;
 
-   background-color: rgb(125, 181, 230);
+   background-color: $bg-color;
 }
 
-header h3 {
+.header-title {
+   color: $light-accent;
    padding: 0.5em;
+
 }

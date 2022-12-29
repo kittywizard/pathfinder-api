@@ -1,0 +1,19 @@
+
+
+// variables 
+$bg-color: #252c46;
+$light-accent: #f2f2f2;
+$blue-accent: #aad5db;
+
+//imports
+@import "./App.scss";
+@import "./components/header/header.scss";
+@import "./components/nav/nav.scss";
+
+
+body {
+    font-family: 'Manrope', sans-serif; 
+    padding: 0;
+    margin: 0;
+    /* 300, 500, 700 */
+}
