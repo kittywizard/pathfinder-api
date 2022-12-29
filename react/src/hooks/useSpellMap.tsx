@@ -9,6 +9,7 @@ interface spellTypes {
     saving_throws: boolean,
     school: string,
     short_description: string,
+    description: string,
     range: string,
     area: string,
     effect: string
@@ -16,8 +17,6 @@ interface spellTypes {
 
 export default function useSpellMap() {
     const [spells, setSpells] = useState<any>([]);
-
-    //write functions here
 
     useEffect(() => {
       fetch('http://localhost:3001')
@@ -29,9 +28,9 @@ export default function useSpellMap() {
       })
     }, []);
 
-    //fix the display of certain things
+    //capitalize strings
     const formatSpells = (str: string) => {
-        const formattedStrArr: Array = str.split('');
+        const formattedStrArr: Array<string> = str.split('');
         formattedStrArr[0] = formattedStrArr[0].toUpperCase();
         return formattedStrArr.join('');         
 
@@ -48,10 +47,11 @@ export default function useSpellMap() {
                 <li className='spell-name'>
                     {spell.name}
                 </li>
-                <li>School: {formatSpells(spell.school)}</li>
-                    {spell.subschool != '' && <li>Subschool: {formatSpells(spell.subschool)}</li>}
+                <li>School: {formatSpells(spell.school)}
+                            {spell.subschool != '' && <> ({formatSpells(spell.subschool)})</>}
+                </li>
                 <li>
-                    Description: {spell.short_description}
+                   Description: {spell.short_description != '' ? <>{spell.short_description}</> : <>{spell.description}</>}
                 </li>
                 <li>
                     {spell.range != '' &&
