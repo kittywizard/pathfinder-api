@@ -10,7 +10,9 @@ const App:React.FC = () => {
     <>
     <Header />
     <section className='box-container'>
-      {spellMap}
+
+          {spellMap}
+
     </section>
     </>
   )

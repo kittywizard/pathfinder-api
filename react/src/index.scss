@@ -1,7 +1,7 @@
 
 
 // variables 
-$bg-color: #252c46;
+$bg-color: rgb(37, 44, 70);
 $light-accent: #f2f2f2;
 $blue-accent: #aad5db;
 
@@ -15,5 +15,6 @@ body {
     font-family: 'Manrope', sans-serif; 
     padding: 0;
     margin: 0;
+    background-color: $bg-color;
     /* 300, 500, 700 */
 }

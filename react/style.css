@@ -5,7 +5,8 @@
   margin-top: 2em;
 }
 .box-container .spell-box {
-  background-color: #aad5db;
+  background-color: rgb(71, 78, 102);
+  box-shadow: 4px 10px 20px -10px rgba(0, 0, 0, 0.7);
   border-radius: 2em;
   margin: 0.5em;
   max-width: 500px;
@@ -16,20 +17,21 @@
   justify-content: center;
   list-style-type: none;
   margin: 1em;
+  padding: 1em;
 }
-.box-container .spell-box .spell-list li {
-  padding: 0.5em;
-}
-.box-container .spell-box ul {
-  padding-inline-start: 0;
-}
-
-.spell-name {
+.box-container .spell-box .spell-list .spell-name {
   font-size: 2rem;
-  color: #252c46;
+  color: #aad5db;
   font-weight: 700;
   line-height: 85%;
   letter-spacing: -0.5px;
+}
+.box-container .spell-box .spell-list li {
+  padding-bottom: 0.5em;
+  color: #f2f2f2;
+}
+.box-container .spell-box ul {
+  padding-inline-start: 0;
 }
 
 header {
@@ -38,7 +40,8 @@ header {
   align-items: center;
   font-size: 1rem;
   font-weight: 800;
-  background-color: #252c46;
+  background-color: rgb(37, 44, 70);
+  box-shadow: 20px 30px 38px -34px rgba(0, 0, 0, 0.3);
 }
 
 .header-title {
@@ -57,7 +60,7 @@ nav {
   top: 0;
   left: 0;
   width: 66%;
-  background-color: #252c46;
+  background-color: rgb(37, 44, 70);
   color: #f2f2f2;
   height: 100vh;
   z-index: 2;
@@ -66,6 +69,7 @@ nav {
   transition: transform 0.3s;
   margin: 0;
   padding: 0;
+  box-shadow: 10px 60px 38px -34px rgba(0, 0, 0, 0.7);
 }
 
 .nav-list a {
@@ -75,7 +79,7 @@ nav {
 }
 
 .nav-list a:hover {
-  color: #252c46;
+  color: rgb(37, 44, 70);
   background: #f2f2f2;
 }
 
@@ -105,6 +109,7 @@ body {
   font-family: "Manrope", sans-serif;
   padding: 0;
   margin: 0;
+  background-color: rgb(37, 44, 70);
   /* 300, 500, 700 */
 }
 

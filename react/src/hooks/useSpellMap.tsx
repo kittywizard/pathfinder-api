@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect,useState } from "react";
+import SpellInfo from "../components/spell-info/SpellInfo";
 
 interface spellTypes {
     id: number,
@@ -22,9 +23,14 @@ export default function useSpellMap() {
       fetch('http://localhost:3001')
       .then(response =>  response.json())
       .then(data => {
+
         //only get a few for now
-        setSpells(data)
-      
+        let tempArray = [];
+        for(let i=0; i < 10; i++){
+          tempArray.push(data[i])
+        }
+
+        setSpells(tempArray);
       })
     }, []);
 
@@ -33,7 +39,6 @@ export default function useSpellMap() {
         const formattedStrArr: Array<string> = str.split('');
         formattedStrArr[0] = formattedStrArr[0].toUpperCase();
         return formattedStrArr.join('');         
-
     }
   
   // spell API names:
@@ -43,7 +48,7 @@ export default function useSpellMap() {
     const spellMap = spells.map((spell: spellTypes) => {
         return (
           <div className="spell-box">
-            <ul className="spell-list">
+          <ul className="spell-list">
                 <li className='spell-name'>
                     {spell.name}
                 </li>
@@ -64,12 +69,12 @@ export default function useSpellMap() {
                         <>Effect: {formatSpells(spell.effect)}</>
                     }
               </li>
-            </ul> 
-          </div>
+        </ul>
+        </div>
         )
     })
   
 
     //return said functions below
-    return {spellMap}
+    return {spellMap, formatSpells}
 }
