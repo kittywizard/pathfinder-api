@@ -1,5 +1,6 @@
 
 connection.js
+automate.js
 
 # Logs
 logs
@@ -106,3 +107,4 @@ dist
 # TernJS port file
 .tern-port
 api.env
+automate.js
