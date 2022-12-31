@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { useEffect,useState } from "react";
-import SpellInfo from "../components/spell-info/SpellInfo";
 
 interface spellTypes {
     id: number,
@@ -16,8 +15,16 @@ interface spellTypes {
     effect: string
   }
 
+  interface iFilterData {
+    name: string,
+    id: number,
+    isChecked: boolean
+}
+
 export default function useSpellMap() {
     const [spells, setSpells] = useState<any>([]);
+    const [filterData, setFilterData] = useState<iFilterData>([]);
+    //need to grab each name and id from the list and attach to filterData
 
     useEffect(() => {
       fetch('http://localhost:3001')
@@ -32,7 +39,18 @@ export default function useSpellMap() {
 
         setSpells(tempArray);
       })
-    }, []);
+        
+      }, []);
+      
+
+      //need to grab an ID and isChecked property. good luck
+      useEffect(() => {
+          const spellSchools:any = [];
+          spells.forEach(spell => spellSchools.push(spell.school));
+          setFilterData(spellSchools);
+    }, [spells]);
+
+
 
     //capitalize strings
     const formatSpells = (str: string) => {
@@ -76,5 +94,5 @@ export default function useSpellMap() {
   
 
     //return said functions below
-    return {spellMap, formatSpells}
+    return {spellMap, formatSpells, filterData, setFilterData}
 }
